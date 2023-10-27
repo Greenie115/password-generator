@@ -92,19 +92,24 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
   //PROMPT the user for the length of the password - make this a variable
   var passwordLengthPrompt = prompt("How many characters would you like your password to have?");
-    
-  //CONFIRM for upper case
-  var upperCaseConfirm = confirm("would you like upper case letter?");
+    if(passwordLengthPrompt > 7 && passwordLengthPrompt < 129){
+      //CONFIRM for upper case
+      var upperCaseConfirm = confirm("would you like upper case letter?");
 
-  //CONFIRM for special char
-  var specialConfirm = confirm("Would you like special characters?");
-  
-  //CONFIRM for numbers
-  var numberConfimr = confirm("Would you like number?");
+      //CONFIRM for special char
+      var specialConfirm = confirm("Would you like special characters?");
+      
+      //CONFIRM for numbers
+      var numberConfimr = confirm("Would you like number?");
 
-  //CONFIRM for lower case
-  var lowerCaseConfirm = confirm("Would you like lower case letters?");
-  
+      //CONFIRM for lower case
+      var lowerCaseConfirm = confirm("Would you like lower case letters?");
+      
+    } else {
+
+      return alert("Your password must be between 8 and 128 characters")
+
+    };
   //IF the CONFIRM is TRUE, concat the array with the other TRUE conditions
 }
 
@@ -132,4 +137,4 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-alert("test")
+getPasswordOptions();
