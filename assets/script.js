@@ -88,6 +88,8 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var passwordArray = []
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   //PROMPT the user for the length of the password - make this a variable
@@ -100,17 +102,26 @@ function getPasswordOptions() {
       var specialConfirm = confirm("Would you like special characters?");
       
       //CONFIRM for numbers
-      var numberConfimr = confirm("Would you like number?");
+      var numberConfirm = confirm("Would you like number?");
 
       //CONFIRM for lower case
       var lowerCaseConfirm = confirm("Would you like lower case letters?");
       
     } else {
-
-      return alert("Your password must be between 8 and 128 characters")
-
+      //error handler to catch values below 8 and above 128
+      return alert("Your password must be between 8 and 128 characters");
     };
-  //IF the CONFIRM is TRUE, concat the array with the other TRUE conditions
+    if(upperCaseConfirm){
+      passwordArray = passwordArray.concat(upperCasedCharacters)
+    }
+
+    if(specialConfirm){
+      passwordArray = passwordArray.concat(specialCharacters)
+    }
+
+    if(numberConfirm){
+      passwordArray = passwordArray.concat(numericCharacters)
+    }
 }
 
 // Function for getting a random element from an array
