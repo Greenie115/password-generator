@@ -91,6 +91,9 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   //PROMPT the user for the length of the password - make this a variable
+  var passwordLength = prompt("How many characters would you like your password to have?");
+
+  
   //PROMPT for upper case
   //PROMPT for special char
   //PROMPT for numbers
