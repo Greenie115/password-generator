@@ -91,14 +91,21 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   //PROMPT the user for the length of the password - make this a variable
-  var passwordLength = prompt("How many characters would you like your password to have?");
+  var passwordLengthPrompt = prompt("How many characters would you like your password to have?");
+    
+  //CONFIRM for upper case
+  var upperCaseConfirm = confirm("would you like upper case letter?");
 
+  //CONFIRM for special char
+  var specialConfirm = confirm("Would you like special characters?");
   
-  //PROMPT for upper case
-  //PROMPT for special char
-  //PROMPT for numbers
-  //PROMPT for lower case
-  //IF the PROMPT is TRUE, concat the array with the other TRUE conditions
+  //CONFIRM for numbers
+  var numberConfimr = confirm("Would you like number?");
+
+  //CONFIRM for lower case
+  var lowerCaseConfirm = confirm("Would you like lower case letters?");
+  
+  //IF the CONFIRM is TRUE, concat the array with the other TRUE conditions
 }
 
 // Function for getting a random element from an array
@@ -124,3 +131,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+alert("test")
