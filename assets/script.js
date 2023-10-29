@@ -111,6 +111,8 @@ function getPasswordOptions() {
       //error handler to catch values below 8 and above 128
       return alert("Your password must be between 8 and 128 characters");
     };
+
+    //IF statements to add each array based on the users choice
     if(upperCaseConfirm){
       passwordArray = passwordArray.concat(upperCasedCharacters)
     }
@@ -130,6 +132,9 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  var length = arr.length
+  var random = arr[Math.floor(Math.random() * length)];
+  return random;
   //use .random in a loop. Get the .length from the uses input
 }
 
@@ -152,4 +157,4 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-getPasswordOptions();
+console.log(getRandom(lowerCasedCharacters));
