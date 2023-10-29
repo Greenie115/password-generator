@@ -122,7 +122,11 @@ function getPasswordOptions() {
     if(numberConfirm){
       passwordArray = passwordArray.concat(numericCharacters)
     }
-}
+
+    if(lowerCaseConfirm){
+      passwordArray = passwordArray.concat(lowerCasedCharacters)
+    }
+};
 
 // Function for getting a random element from an array
 function getRandom(arr) {
