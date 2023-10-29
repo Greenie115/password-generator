@@ -143,7 +143,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword(passwordLengthPrompt);
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
@@ -153,4 +153,3 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 getPasswordOptions();
-console.log(generatePassword(passwordLengthPrompt))
