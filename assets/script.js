@@ -88,46 +88,24 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var passwordArray = []
-
+var passwordLengthPrompt = prompt("How many characters would you like your password to have?")
+var upperCaseConfirm = ""
+var specialConfirm = ""
+var numberConfirm = ""
+var lowerCaseConfirm = ""
+      
 // Function to prompt user for password options
 function getPasswordOptions() {
   //PROMPT the user for the length of the password - make this a variable
-  var passwordLengthPrompt = prompt("How many characters would you like your password to have?");
     if(passwordLengthPrompt > 7 && passwordLengthPrompt < 129){
-      //CONFIRM for upper case
-      var upperCaseConfirm = confirm("would you like upper case letter?");
-
-      //CONFIRM for special char
-      var specialConfirm = confirm("Would you like special characters?");
-      
-      //CONFIRM for numbers
-      var numberConfirm = confirm("Would you like number?");
-
-      //CONFIRM for lower case
-      var lowerCaseConfirm = confirm("Would you like lower case letters?");
-      
+       upperCaseConfirm = confirm("would you like upper case letter?");
+       specialConfirm = confirm("Would you like special characters?");
+       numberConfirm = confirm("Would you like number?");
+       lowerCaseConfirm = confirm("Would you like lower case letters?");
     } else {
       //error handler to catch values below 8 and above 128
       return alert("Your password must be between 8 and 128 characters");
     };
-
-    //IF statements to add each array based on the users choice
-    if(upperCaseConfirm){
-      passwordArray = passwordArray.concat(upperCasedCharacters)
-    }
-
-    if(specialConfirm){
-      passwordArray = passwordArray.concat(specialCharacters)
-    }
-
-    if(numberConfirm){
-      passwordArray = passwordArray.concat(numericCharacters)
-    }
-
-    if(lowerCaseConfirm){
-      passwordArray = passwordArray.concat(lowerCasedCharacters)
-    }
 };
 
 // Function for getting a random element from an array
@@ -135,11 +113,27 @@ function getRandom(arr) {
   var length = arr.length
   var random = arr[Math.floor(Math.random() * length)];
   return random;
-  //use .random in a loop. Get the .length from the uses input
 }
 
 // Function to generate password with user input
-function generatePassword() {
+function generatePassword(length) {
+  var genPass = ""
+
+  for(i = 0; i < length.length; i++){
+    if(upperCaseConfirm){
+      genPass += getRandom(upperCasedCharacters)
+    }
+    if(specialConfirm){
+      genPass += getRandom(specialCharacters)
+    }
+    if(numberConfirm){
+      genPass += getRandom(numericCharacters)
+    }
+    if(lowerCaseConfirm){
+      genPass += getRandom(lowerCasedCharacters)
+    }
+  }
+  return genPass;
   //CONCAT the arrays and pull random indexes from the total
 }
 
@@ -157,4 +151,5 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-console.log(getRandom(lowerCasedCharacters));
+getPasswordOptions();
+console.log(generatePassword(passwordLengthPrompt))
