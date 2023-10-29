@@ -88,7 +88,7 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var passwordLengthPrompt = prompt("How many characters would you like your password to have?")
+var passwordLengthPrompt = Number(prompt("How many characters would you like your password to have?"));
 var upperCaseConfirm = ""
 var specialConfirm = ""
 var numberConfirm = ""
@@ -118,24 +118,25 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword(length) {
   var genPass = ""
-
-  for(i = 0; i < length.length; i++){
+  var allCharacters = ""
     if(upperCaseConfirm){
-      genPass += getRandom(upperCasedCharacters)
+      allCharacters += upperCasedCharacters.join("")
     }
     if(specialConfirm){
-      genPass += getRandom(specialCharacters)
+      allCharacters += specialCharacters.join("")
     }
     if(numberConfirm){
-      genPass += getRandom(numericCharacters)
+      allCharacters += numericCharacters.join("")
     }
     if(lowerCaseConfirm){
-      genPass += getRandom(lowerCasedCharacters)
+      allCharacters += lowerCasedCharacters.join("")
     }
+
+  for(i = 0; i < length; i++){
+    genPass += getRandom(allCharacters)
+    }
+    return genPass;
   }
-  return genPass;
-  //CONCAT the arrays and pull random indexes from the total
-}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
