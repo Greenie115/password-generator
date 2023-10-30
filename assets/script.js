@@ -105,11 +105,11 @@ function getPasswordOptions() {
        lowerCaseConfirm = confirm("Would you like lower case letters?");
     } else {
       //error handler to catch values below 8 and above 128
-      alert("Your password must be between 8 and 128 characters");
+      alert("Your password must be between 8 and 128 characters")
     };
     // if statement to catch the user selecting no options
     if(!upperCaseConfirm && !specialConfirm && !numberConfirm && !lowerCaseConfirm){
-      alert("You must select at least 1 option"); getPasswordOptions()
+      confirm("You must select at least 1 option");
     }; 
 };
 //------------- END -------------
