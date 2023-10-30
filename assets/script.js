@@ -88,6 +88,7 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+//empty variables to hold user prompts
 var passwordLengthPrompt = Number(prompt("How many characters would you like your password to have?"));
 var upperCaseConfirm = ""
 var specialConfirm = ""
@@ -106,24 +107,29 @@ function getPasswordOptions() {
       //error handler to catch values below 8 and above 128
       alert("Your password must be between 8 and 128 characters");
     };
+    // if statement to catch the user selecting no options
     if(!upperCaseConfirm && !specialConfirm && !numberConfirm && !lowerCaseConfirm){
       alert("You must select at least 1 option"); getPasswordOptions()
     }; 
 };
+//------------- END -------------
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  var length = arr.length
+  var length = arr.length//gets the array length
   var random = arr[Math.floor(Math.random() * length)];
   return random;
 }
+//---------- END -----------
+
 
 // Function to generate password with user input
 function generatePassword(length) {
   var genPass = ""
   var allCharacters = ""
     if(upperCaseConfirm){
-      allCharacters += upperCasedCharacters.join("")
+      allCharacters += upperCasedCharacters.join("")//removes each "," between the array values
     }
     if(specialConfirm){
       allCharacters += specialCharacters.join("")
@@ -134,12 +140,13 @@ function generatePassword(length) {
     if(lowerCaseConfirm){
       allCharacters += lowerCasedCharacters.join("")
     }
-
+    // loop to select characters based on the length of password 
   for(i = 0; i < length; i++){
     genPass += getRandom(allCharacters)
     }
     return genPass;
   }
+  //---------- END ----------
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -155,4 +162,5 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
+//calls the function to start the user input
 getPasswordOptions();
